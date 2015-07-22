@@ -1543,22 +1543,6 @@ yyreturn:
 
 /* Поместить арифметические функции в таблицу. */
 
-void init_table(void)
-{
-	int i;
-	symrec *ptr;
-	for (i = 0; arith_fncts[i].fname != 0; i++)
-	{
-		ptr = putsym(arith_fncts[i].fname, FNCT);
-		ptr->value.fnctptr = arith_fncts[i].fnct;
-	}
-}
-
-
-void yyerror(const char *s)  /* Вызывается yyparse в случае ошибки */
-{
-	printf("%s\n", s);
-}
 
 struct init
 {
@@ -1576,6 +1560,25 @@ struct init arith_fncts[] =
 	"sqrt", sqrt,
 	0, 0
 };
+
+void init_table(void)
+{
+	int i;
+	symrec *ptr;
+	for (i = 0; arith_fncts[i].fname != 0; i++)
+	{
+		ptr = putsym(arith_fncts[i].fname, FNCT);
+		ptr->value.fnctptr = arith_fncts[i].fnct;
+	}
+}
+
+
+void yyerror(const char *s)  /* Вызывается yyparse в случае ошибки */
+{
+	printf("%s\n", s);
+}
+
+
 
 /* Таблица символов: цепочка `struct symrec'.  */
 symrec *sym_table = (symrec *)0;
