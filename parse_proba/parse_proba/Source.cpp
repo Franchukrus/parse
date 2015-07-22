@@ -68,9 +68,11 @@ USER NAME SPACE" below.  */
 #line 1 "parse1.y" /* yacc.c:339  */
 
 #include <math.h> 
-#include "calc.h"  
+#include "calc.h" 
+void yyerror(const char *s);
+int yylex(void);
 
-#line 71 "parse1.tab.c" /* yacc.c:339  */
+#line 73 "parse1.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -114,12 +116,10 @@ enum yytokentype
 typedef union YYSTYPE YYSTYPE;
 union YYSTYPE
 {
-#line 5 "parse1.y" /* yacc.c:355  */
+#line 7 "parse1.y" /* yacc.c:355  */
 
 	double     val;
 	symrec  *tptr;
-	void yyerror(const char *s);
-	int yylex(void);
 
 #line 122 "parse1.tab.c" /* yacc.c:355  */
 };
@@ -302,13 +302,13 @@ to allow for a few compiler-allocated temporary stack slots.  */
 #  ifndef YYMALLOC
 #   define YYMALLOC malloc
 #   if ! defined malloc && ! defined EXIT_SUCCESS
-void *malloc(YYSIZE_T); /* INFRINGES ON USER NAME SPACE */
+void *malloc (YYSIZE_T); /* INFRINGES ON USER NAME SPACE */
 #   endif
 #  endif
 #  ifndef YYFREE
 #   define YYFREE free
 #   if ! defined free && ! defined EXIT_SUCCESS
-void free(void *); /* INFRINGES ON USER NAME SPACE */
+void free (void *); /* INFRINGES ON USER NAME SPACE */
 #   endif
 #  endif
 # endif
@@ -435,7 +435,7 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint8 yyrline[] =
 {
 	0,    24,    24,    25,    29,    30,    31,    34,    35,    36,
-	37, 38, 39, 40, 41, 42, 43, 44
+	37,    38,    39,    40,    41,    42,    43,    44
 };
 #endif
 
@@ -456,7 +456,7 @@ static const char *const yytname[] =
 static const yytype_uint16 yytoknum[] =
 {
 	0,   256,   257,   258,   259,   260,    61,    45,    43,    42,
-	47, 261, 94, 10, 40, 41
+	47,   261,    94,    10,    40,    41
 };
 # endif
 
@@ -1354,7 +1354,7 @@ yyerrlab:
 	{
 		++yynerrs;
 #if ! YYERROR_VERBOSE
-		yyerror (YY_("syntax error"));
+		yyerror(YY_("syntax error"));
 #else
 # define YYSYNTAX_ERROR yysyntax_error (&yymsg_alloc, &yymsg, \
                                         yyssp, yytoken)
@@ -1384,10 +1384,10 @@ yyerrlab:
 			yyerror (yymsgp);
 			if (yysyntax_error_status == 2)
 				goto yyexhaustedlab;
-	}
+		}
 # undef YYSYNTAX_ERROR
 #endif
-}
+	}
 
 
 
@@ -1524,15 +1524,18 @@ yyreturn:
 	}
 #ifndef yyoverflow
 	if (yyss != yyssa)
-		YYSTACK_FREE (yyss);
+		YYSTACK_FREE(yyss);
 #endif
 #if YYERROR_VERBOSE
 	if (yymsg != yymsgbuf)
-		YYSTACK_FREE(yymsg);
+		YYSTACK_FREE (yymsg);
 #endif
 	return yyresult;
 }
 #line 46 "parse1.y" /* yacc.c:1906  */
+
+
+
 
 
 

@@ -65,9 +65,11 @@
 #line 1 "parse1.y" /* yacc.c:339  */
 
 #include <math.h> 
-#include "calc.h"  
+#include "calc.h" 
+void yyerror (const char *s);
+int yylex (void); 
 
-#line 71 "parse1.tab.c" /* yacc.c:339  */
+#line 73 "parse1.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -111,12 +113,10 @@ extern int yydebug;
 typedef union YYSTYPE YYSTYPE;
 union YYSTYPE
 {
-#line 5 "parse1.y" /* yacc.c:355  */
+#line 7 "parse1.y" /* yacc.c:355  */
 
 double     val;  
 symrec  *tptr;  
-void yyerror (const char *s);
-int yylex (void);
 
 #line 122 "parse1.tab.c" /* yacc.c:355  */
 };

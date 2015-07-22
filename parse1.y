@@ -1,12 +1,12 @@
 %{
 #include <math.h> 
-#include "calc.h"  
+#include "calc.h" 
+void yyerror (const char *s);
+int yylex (void); 
 %}
 %union {
 double     val;  
 symrec  *tptr;  
-void yyerror (const char *s);
-int yylex (void);
 }
 
 %token <val>  NUM        
