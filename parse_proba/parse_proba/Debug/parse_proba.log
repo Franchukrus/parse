@@ -1,21 +1,21 @@
-﻿Build started 21.07.2015 17:55:58.
+﻿Build started 22.07.2015 12:01:29.
      1>Project "C:\Users\Fantom\Documents\Visual Studio 2013\Projects\parse_proba\parse_proba\parse_proba.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Source.cpp
          Source.cpp
-     1>parse1.tab.c(1145): error C3861: 'yylex': identifier not found
-     1>parse1.tab.c(1352): error C3861: 'yyerror': identifier not found
-     1>parse1.tab.c(1496): error C3861: 'yyerror': identifier not found
-     1>parse1.y(51): error C2065: 'arith_fncts' : undeclared identifier
-     1>parse1.y(51): error C2228: left of '.fname' must have class/struct/union
-     1>parse1.y(53): error C2065: 'arith_fncts' : undeclared identifier
-     1>parse1.y(53): error C2228: left of '.fname' must have class/struct/union
-     1>parse1.y(54): error C2065: 'arith_fncts' : undeclared identifier
-     1>parse1.y(54): error C2228: left of '.fnct' must have class/struct/union
-     1>parse1.y(136): error C2664: 'symrec *putsym(const char *,func_t)' : cannot convert argument 2 from 'yytokentype' to 'func_t'
+     1>parse1.tab.c(1147): error C3861: 'yylex': identifier not found
+     1>parse1.tab.c(1354): error C3861: 'yyerror': identifier not found
+     1>parse1.tab.c(1498): error C3861: 'yyerror': identifier not found
+     1>parse1.y(57): error C2065: 'arith_fncts' : undeclared identifier
+     1>parse1.y(57): error C2228: left of '.fname' must have class/struct/union
+     1>parse1.y(59): error C2065: 'arith_fncts' : undeclared identifier
+     1>parse1.y(59): error C2228: left of '.fname' must have class/struct/union
+     1>parse1.y(60): error C2065: 'arith_fncts' : undeclared identifier
+     1>parse1.y(60): error C2228: left of '.fnct' must have class/struct/union
+     1>parse1.y(142): error C2664: 'symrec *putsym(const char *,func_t)' : cannot convert argument 2 from 'yytokentype' to 'func_t'
                  Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
      1>Done Building Project "C:\Users\Fantom\Documents\Visual Studio 2013\Projects\parse_proba\parse_proba\parse_proba.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.33
+Time Elapsed 00:00:00.88
