@@ -1,5 +1,5 @@
 %{
-    #include "3.tab.h"
+    #include "3.tab.hpp"
 %}
 
 %option yylineno

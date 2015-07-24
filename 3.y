@@ -1,11 +1,19 @@
 %{
-    #include <stdio.h>
+    #include <cstdio>
+	#include <iostream>
+	#include <string>
+	using namespace std;
+	
     void yyerror(char *s) {
       fprintf (stderr, "%s\n", s);
     }
+
+	extern int yylex (void);
 %}
 
 %token NUM
+
+%debug
 
 %%
 
@@ -22,3 +30,9 @@ TERM:    NUM
 ;
 
 %%
+
+int main()
+{
+	//yydebug=1;
+	yyparse();
+}

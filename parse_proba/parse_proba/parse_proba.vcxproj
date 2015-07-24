@@ -69,10 +69,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClInclude Include="calc.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="calc.h" />
+    <ClCompile Include="..\..\3.tab.cpp" />
+    <ClCompile Include="..\..\lex.yy.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
