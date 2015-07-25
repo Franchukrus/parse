@@ -1,5 +1,9 @@
 %{
+	#include "calc.h"
     #include "3.tab.hpp"
+    #include <cmath>
+    #include <string>
+    using namespace std;
 %}
 
 %option yylineno
@@ -7,11 +11,14 @@
 
 %%
 
+\n              { return '\n'; }
 [/][/].*\n      ; // comment
-[0-9]+          { yylval = atoi(yytext);
+[0-9]+          { yylval.val = stod(yytext);
                   return NUM;
                 }
-[ \t\r\n]      ; // whitespace
-.              { return *yytext; }
+[ \t\r]      	; // whitespace
+sin				{ yylval.func = sin;
+				  return FNCT; }
+.               { return *yytext; }
 
 %%

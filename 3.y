@@ -2,6 +2,7 @@
     #include <cstdio>
 	#include <iostream>
 	#include <string>
+    #include <cmath>
     #include "calc.h"
 	using namespace std;
 	
@@ -16,14 +17,13 @@
 %}
 
 %union {
-double     val;  
-symrec  *tptr;  
+    double val;
+    func_t func;
 }
 
 %token <val>  NUM        
-%token <tptr> VAR FNCT   
+%token <func> FNCT   
 %type  <val>  exp
-%token NEG
 
 %right '='
 %left '-' '+'
@@ -35,20 +35,18 @@ symrec  *tptr;
 
 %%
 
-input:   
+input:  line 
         | input line
 ;
 
 line:
           '\n'
-        | exp '\n'   { printf ("\t%.10g\n", $1); }
+        | exp '\n'   { cout << $1 << endl; }
         | error '\n' { yyerrok;                  }
 ;
 
 exp:      NUM                { $$ = $1;                         }
-        | VAR                { $$ = $1->value.var;              }
-        | VAR '=' exp        { $$ = $3; $1->value.var = $3;     }
-        | FNCT '(' exp ')'   { $$ = (*($1->value.fnctptr))($3); }
+        | FNCT '(' exp ')'   { $$ = ($1)($3); }
         | exp '+' exp        { $$ = $1 + $3;                    }
         | exp '-' exp        { $$ = $1 - $3;                    }
         | exp '*' exp        { $$ = $1 * $3;                    }
