@@ -4,6 +4,11 @@
     #include <cmath>
     #include <string>
     using namespace std;
+
+    double cot(double x)
+    {
+    	return cos(x)/sin(x);
+    }
 %}
 
 %option yylineno
@@ -19,6 +24,14 @@
 [ \t\r]      	; // whitespace
 sin				{ yylval.func = sin;
 				  return FNCT; }
+cos				{yylval.func=cos;
+				 return FNCT;}
+tan				{yylval.func=tan;
+				 return FNCT;}
+cot				{yylval.func=cot;
+				 return FNCT;}
+log				{yylval.func=log10;
+				 return FNCT;}
 .               { return *yytext; }
 
 %%
