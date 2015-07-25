@@ -2,6 +2,7 @@
     #include <cstdio>
 	#include <iostream>
 	#include <string>
+    #include "calc.h"
 	using namespace std;
 	
     void yyerror(char *s) {
@@ -9,14 +10,26 @@
     }
 
 	extern int yylex (void);
+
+
+
 %}
 
-%token NUM
-%token FNCT
-%token VAR
+%union {
+double     val;  
+symrec  *tptr;  
+}
+
+%token <val>  NUM        
+%token <tptr> VAR FNCT   
+%type  <val>  exp
 %token NEG
 
-
+%right '='
+%left '-' '+'
+%left '*' '/'
+%left NEG     
+%right '^'   
 
 %debug
 
