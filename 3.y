@@ -5,7 +5,8 @@
     #include <cmath>
     #include "calc.h"
 	using namespace std;
-
+    double result;
+    double x;
     void yyerror(char *s) {
       fprintf (stderr, "%s\n", s);
     }
@@ -26,6 +27,7 @@
 %token <val>  NUM
 %token <func> FNCT
 %type  <val>  exp
+%token VAR
 
 %right '='
 %left '-' '+'
@@ -43,11 +45,14 @@ input:  line
 
 line:
           '\n'
-        | exp '\n'   { cout << $1 << endl; }
+        | exp '\n'   { result=$1; }
         | error '\n' { yyerrok;                  }
+        | VAR '=' exp        { x = $3;                         }
 ;
 
 exp:      NUM                { $$ = $1;                         }
+        | VAR                { $$ = x;                          }
+        | VAR '=' exp        { x = $3;                         }
         | FNCT '(' exp ')'   { $$ = ($1)($3); }
         | exp '+' exp        { $$ = $1 + $3;                    }
         | exp '-' exp        { $$ = $1 - $3;                    }
@@ -60,9 +65,11 @@ exp:      NUM                { $$ = $1;                         }
 
 %%
 
-int main()
+double parser(double X, string mmathematical_expression)
 {
-    YY_BUFFER_STATE buffer = yy_scan_string("1+2\nlog(10)\n");
-	yyparse();
+    x=X;
+    YY_BUFFER_STATE buffer = yy_scan_string(mmathematical_expression.c_str());
+    yyparse();
     yy_delete_buffer(buffer);
+    return result;
 }

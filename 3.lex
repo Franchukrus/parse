@@ -32,6 +32,8 @@ cot				{yylval.func=cot;
 				 return FNCT;}
 log				{yylval.func=log10;
 				 return FNCT;}
+x               { return VAR; }
 .               { return *yytext; }
+
 
 %%
