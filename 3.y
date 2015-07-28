@@ -2,6 +2,7 @@
     #include <cstdio>
 	#include <iostream>
 	#include <string>
+    #include "parse_dll.h"
     #include <cmath>
     #include "calc.h"
 	using namespace std;
